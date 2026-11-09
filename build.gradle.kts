@@ -1,3 +1,7 @@
+plugins {
+    id("com.diffplug.spotless") version "8.7.0" apply false
+}
+
 allprojects {
     group = "io.github.notkiruzu.stratum"
     version = "0.1.0-SNAPSHOT"
@@ -9,6 +13,7 @@ allprojects {
 
 subprojects {
     apply(plugin = "java-library")
+    apply(plugin = "com.diffplug.spotless")
 
     configure<JavaPluginExtension> {
         toolchain {
@@ -29,5 +34,14 @@ subprojects {
 
     tasks.withType<Test>().configureEach {
         useJUnitPlatform()
+    }
+
+    configure<com.diffplug.gradle.spotless.SpotlessExtension> {
+        java {
+            googleJavaFormat()
+            removeUnusedImports()
+            trimTrailingWhitespace()
+            endWithNewline()
+        }
     }
 }
