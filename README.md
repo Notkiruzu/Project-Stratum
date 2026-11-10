@@ -11,7 +11,7 @@ A from-scratch, region-sharded Minecraft: Java Edition server designed to scale 
 
 ## Target version
 
-| | |
+|  Item| Value|
 |---|---|
 | Minecraft: Java Edition | 26.3 |
 | Protocol version | 777 |
